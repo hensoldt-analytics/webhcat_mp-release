@@ -1,0 +1,38 @@
+{
+  "WEBHCAT": {
+    "service": [],
+    "WEBHCAT_SERVER": [
+      {
+        "name": "hive_webhcat_server_status",
+        "label": "WebHCat Server Status",
+        "description": "This host-level alert is triggered if the templeton server status is not healthy.",
+        "interval": 1,
+        "scope": "ANY",
+        "enabled": true,
+        "source": {
+          "type": "SCRIPT",
+          "path": "HDP/3.0/services/WEBHCAT/package/alerts/alert_webhcat_server.py",
+          "parameters": [
+            {
+              "name": "default.smoke.user",
+              "display_name": "Default Smoke User",
+              "value": "ambari-qa",
+              "type": "STRING",
+              "description": "The user that will run the Hive commands if not specified in cluster-env/smokeuser",
+              "visibility": "HIDDEN"
+            },
+            {
+              "name": "connection.timeout",
+              "display_name": "Connection Timeout",
+              "value": 5.0,
+              "type": "NUMERIC",
+              "description": "The maximum time before this alert is considered to be CRITICAL",
+              "units": "seconds",
+              "threshold": "CRITICAL"
+            }
+          ]
+        }
+      }    
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<assembly>
+  <id></id>
+  <formats>
+    <format>dir</format>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/resources/hdp-addon-services</directory>
+      <outputDirectory>hdp-addon-services</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <files>
+    <file>
+      <source>src/main/resources/mpack.json</source>
+      <filtered>true</filtered>
+    </file>
+  </files>
+</assembly>
