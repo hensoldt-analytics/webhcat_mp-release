@@ -41,7 +41,7 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.libjars</name>
-    <value>/usr/hdp/current/zookeeper-client/zookeeper.jar</value>
+    <value>/usr/hdp/current/zookeeper-client/zookeeper.jar,/usr/hdp/current/hive-client/lib/hive-common.jar,/usr/hdp/current/hive-client/lib/log4j-api-2.10.0.jar</value>
     <description>Jars to add the the classpath.</description>
     <on-ambari-upgrade add="true"/>
   </property>
