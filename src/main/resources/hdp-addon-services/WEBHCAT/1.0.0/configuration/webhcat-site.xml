@@ -59,7 +59,7 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.pig.archive</name>
-    <value>hdfs:///apps/webhcat/pig.tar.gz</value>
+    <value></value>
     <description>The path to the Pig archive.</description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
@@ -68,8 +68,14 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.pig.path</name>
-    <value>pig.tar.gz/pig/bin/pig</value>
+    <value>/usr/bin/pig</value>
     <description>The path to the Pig executable.</description>
+    <on-ambari-upgrade add="true"/>
+  </property>
+  <property>
+    <name>templeton.sqoop.path</name>
+    <value>/usr/bin/sqoop</value>
+    <description>The path to the Sqoop executable.</description>
     <on-ambari-upgrade add="true"/>
   </property>
   <property>
