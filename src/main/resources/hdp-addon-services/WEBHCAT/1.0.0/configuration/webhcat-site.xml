@@ -86,7 +86,7 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.hive.archive</name>
-    <value>hdfs:///apps/webhcat/hive.tar.gz</value>
+    <value></value>
     <description>The path to the Hive archive.</description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
@@ -107,14 +107,17 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.hive.path</name>
-    <value>hive.tar.gz/hive/bin/hive</value>
+    <value>/usr/bin/beeline</value>
     <description>The path to the Hive executable.</description>
     <on-ambari-upgrade add="true"/>
   </property>
   <property>
     <name>templeton.hive.properties</name>
-    <value>hive.metastore.local=false,hive.metastore.uris=thrift://localhost:9083,hive.metastore.sasl.enabled=false</value>
+    <value></value>
     <description>Properties to set when running hive.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
     <on-ambari-upgrade add="true"/>
   </property>
   <property>
