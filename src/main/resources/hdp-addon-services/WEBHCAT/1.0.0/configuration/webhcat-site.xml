@@ -22,7 +22,7 @@ limitations under the License.
 <configuration supports_final="true">
   <property>
     <name>templeton.port</name>
-    <value>50111</value>
+    <value>30111</value>
     <description>The HTTP port for the main server.</description>
     <on-ambari-upgrade add="true"/>
   </property>
