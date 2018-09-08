@@ -77,7 +77,7 @@ def webhcat():
   for prop_name in ['templeton.hive.properties', 'templeton.kerberos.principal']:
     if prop_name in webhcat_site:
       webhcat_site[prop_name] = webhcat_site[prop_name].replace("_HOST", params.hostname)
-  webhcat_site["templeton.streaming.jar"] = format(webhcat_site["templeton.streaming.jar"])
+  webhcat_site["templeton.streaming.jar"] = webhcat_site["templeton.streaming.jar"].replace("${hdp.version}", params.version)
 
   XmlConfig("webhcat-site.xml",
             conf_dir=params.config_dir,

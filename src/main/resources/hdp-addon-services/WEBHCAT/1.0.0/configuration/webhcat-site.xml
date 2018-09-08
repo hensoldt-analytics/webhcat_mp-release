@@ -143,7 +143,7 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.streaming.jar</name>
-    <value>wasb:///hdp/apps/{stack_version_formatted}/mapreduce/hadoop-streaming.jar</value>
+    <value>wasb:///hdp/apps/${hdp.version}/mapreduce/hadoop-streaming.jar</value>
     <description>The hdfs path to the Hadoop streaming jar file.</description>
     <on-ambari-upgrade add="true"/>
   </property>
