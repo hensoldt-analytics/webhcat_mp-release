@@ -113,11 +113,8 @@ limitations under the License.
   </property>
   <property>
     <name>templeton.hive.properties</name>
-    <value></value>
+    <value>hive.metastore.sasl.enabled=false,hive.metastore.execute.setugi=true</value>
     <description>Properties to set when running hive.</description>
-    <value-attributes>
-      <empty-value-valid>true</empty-value-valid>
-    </value-attributes>
     <on-ambari-upgrade add="true"/>
   </property>
   <property>
