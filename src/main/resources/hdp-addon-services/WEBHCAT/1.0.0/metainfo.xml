@@ -17,7 +17,7 @@
           <displayName>WebHCat Server</displayName>
           <category>MASTER</category>
           <cardinality>1+</cardinality>
-          <versionAdvertised>true</versionAdvertised>
+          <versionAdvertised>false</versionAdvertised>
           <reassignAllowed>true</reassignAllowed>
           <clientsToUpdateConfigs>
             <client>HCAT</client>
