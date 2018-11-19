@@ -882,3 +882,6 @@ manage_hive_fsroot = default('/configurations/cluster-env/manage_hive_fsroot', T
 # replication directories
 hive_repl_cmrootdir = default('/configurations/hive-site/hive.repl.cmrootdir', None)
 hive_repl_rootdir = default('/configurations/hive-site/hive.repl.rootdir', None)
+
+# this is needed for generating the yarn-site.xml
+yarn_hbase_conf_dir = os.path.join(hadoop_conf_dir, "embedded-yarn-ats-hbase")
