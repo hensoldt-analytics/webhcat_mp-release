@@ -883,5 +883,44 @@ manage_hive_fsroot = default('/configurations/cluster-env/manage_hive_fsroot', T
 hive_repl_cmrootdir = default('/configurations/hive-site/hive.repl.cmrootdir', None)
 hive_repl_rootdir = default('/configurations/hive-site/hive.repl.rootdir', None)
 
-# this is needed for generating the yarn-site.xml
+# these are needed for generating the yarn-site.xml
+
+# yarn_hbase_conf_dir
 yarn_hbase_conf_dir = os.path.join(hadoop_conf_dir, "embedded-yarn-ats-hbase")
+
+# spark2_version
+spark2_version = get_spark_version("SPARK2", "SPARK2_CLIENT", version)
+
+# timeline_collector
+timeline_collector = ""
+yarn_timeline_service_version = config['configurations']['yarn-site']['yarn.timeline-service.version']
+yarn_timeline_service_versions = config['configurations']['yarn-site']['yarn.timeline-service.versions']
+yarn_timeline_service_enabled = config['configurations']['yarn-site']['yarn.timeline-service.enabled']
+
+if yarn_timeline_service_enabled:
+  if is_empty(yarn_timeline_service_versions):
+    if yarn_timeline_service_version == '2.0' or yarn_timeline_service_version == '2':
+      timeline_collector = "timeline_collector"
+  else:
+    ts_version_list = yarn_timeline_service_versions.split(',')
+    for ts_version in ts_version_list:
+      if '2.0' in ts_version or ts_version == '2':
+        timeline_collector = "timeline_collector"
+        break
+
+# yarn_timeline_jar_location
+coprocessor_jar_name = "hadoop-yarn-server-timelineservice-hbase-coprocessor.jar"
+yarn_timeline_jar_location = format("file://{stack_root}/{version}/hadoop-yarn/timelineservice/{coprocessor_jar_name}")
+
+# cross_origins
+rm_hosts = default('clusterHostInfo/resourcemanager_hosts', [])
+has_rm = len(rm_hosts) > 0
+
+rm_cross_origin_enabled = config['configurations']['yarn-site']['yarn.resourcemanager.webapp.cross-origin.enabled']
+
+cross_origins = '*'
+if has_rm and rm_cross_origin_enabled:
+  rm_host = rm_hosts[0]
+  host_suffix = rm_host.rsplit('.', 2)[1:]
+  if len(host_suffix) == 2 :
+    cross_origins = 'regex:.*[.]' + '[.]'.join(host_suffix) + "(:\d*)?"
