@@ -90,6 +90,8 @@ major_stack_version = get_major_version(stack_version_formatted_major)
 # New Cluster Stack Version that is defined during the RESTART of a Rolling Upgrade.
 # It cannot be used during the initial Cluser Install because the version is not yet known.
 version = default("/commandParams/version", None)
+if not version:
+  version = default("/repositoryFile/repoVersion", None)
 
 # When downgrading the 'version' is pointing to the downgrade-target version
 # downgrade_from_version provides the source-version the downgrade is happening from
