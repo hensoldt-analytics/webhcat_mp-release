@@ -664,6 +664,10 @@ hive2_log_maxbackupindex = default('/configurations/hive-log4j2/hive2_log_maxbac
 llap_cli_log_maxfilesize = default('/configurations/llap-cli-log4j2/llap_cli_log_maxfilesize', 256)
 llap_cli_log_maxbackupindex = default('/configurations/llap-cli-log4j2/llap_cli_log_maxbackupindex', 30)
 
+hive_server2_zookeeper_namespace = config['configurations']['hive-site']['hive.server2.zookeeper.namespace']
+hive_zookeeper_quorum = config['configurations']['hive-site']['hive.zookeeper.quorum']
+hive_jdbc_url = format("jdbc:hive2://{hive_zookeeper_quorum}/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace={hive_server2_zookeeper_namespace}")
+
 if has_hive_interactive:
   llap_daemon_log4j = config['configurations']['llap-daemon-log4j']['content']
   llap_cli_log4j2 = config['configurations']['llap-cli-log4j2']['content']

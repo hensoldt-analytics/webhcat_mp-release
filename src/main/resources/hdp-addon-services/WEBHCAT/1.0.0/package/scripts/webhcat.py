@@ -78,6 +78,7 @@ def webhcat():
     if prop_name in webhcat_site:
       webhcat_site[prop_name] = webhcat_site[prop_name].replace("_HOST", params.hostname)
   webhcat_site["templeton.streaming.jar"] = webhcat_site["templeton.streaming.jar"].replace("${hdp.version}", params.version)
+  webhcat_site["templeton.hive.hs2.url"] = webhcat_site["templeton.hive.hs2.url"].replace("${hive_jdbc_url}", params.hive_jdbc_url)
 
   XmlConfig("webhcat-site.xml",
             conf_dir=params.config_dir,

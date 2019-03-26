@@ -164,4 +164,10 @@ limitations under the License.
     </depends-on>
     <on-ambari-upgrade add="false"/>
   </property>
+  <property>
+    <name>templeton.hive.hs2.url</name>
+    <value>${hive_jdbc_url}</value>
+    <description>HS2 URL to use</description>
+    <on-ambari-upgrade add="true"/>
+  </property>
 </configuration>
